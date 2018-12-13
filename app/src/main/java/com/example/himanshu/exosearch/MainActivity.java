@@ -140,42 +140,7 @@ android.support.v7.widget.SearchView searchView;
 //    }
 
 
-//    public void expandAnimation()
-//    { searchView.measure(SearchView.LayoutParams.MATCH_PARENT,SearchView.LayoutParams.WRAP_CONTENT);
-//        final int target=searchView.getMeasuredHeight();
-//        Log.d(TAG, "expandAnimation: "+target);
-//        searchView.getLayoutParams().height=1;
-//        searchView.setVisibility(View.VISIBLE);
-//
-//        Animation animation=new Animation() {
-//            @Override
-//            protected void applyTransformation(float interpolatedTime, Transformation t) {
-//                super.applyTransformation(interpolatedTime, t);
-//
-//                interpolatedTime=searchView.getLayoutParams().height;
-//                Log.d(TAG, "applyTransformation: "+interpolatedTime);
-//                if (interpolatedTime==1)
-//                {interpolatedTime=SearchView.LayoutParams.MATCH_PARENT;
-//                    Log.d(TAG, "applyTransformation: "+"i am working");
-//                }
-//                else
-//                {interpolatedTime=(int)target*interpolatedTime;
-//                    Log.d(TAG, "applyTransformation: "+"its me");}
-//
-//                    searchView.requestLayout();
-//
-//
-//
-//            }
-//
-//            @Override
-//            public boolean willChangeBounds() {
-//                return  true;
-//            }
-//        };
-//        animation.setDuration((int)(target/searchView.getContext().getResources().getDisplayMetrics().density));
-//        searchView.startAnimation(animation);
-//    }
+
     public GridAdapter getGridAdapter(){
         return gridAdapter;
     }
