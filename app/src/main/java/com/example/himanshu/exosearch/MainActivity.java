@@ -2,14 +2,10 @@ package com.example.himanshu.exosearch;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-=======
+
 import android.util.Log;
->>>>>>> 1020b9f62cb4d861dcb47d82190bafcca0259571
 import android.widget.GridView;
+import android.widget.SearchView;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
@@ -27,15 +23,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-<<<<<<< HEAD
-    GridView gridPlanet;
-    ArrayList<Integer> arrayList;
-=======
 GridView gridPlanet;
 String json;
 public static final String TAG="MAIN";
-ArrayList<MainActivityList> arrayList;
->>>>>>> 1020b9f62cb4d861dcb47d82190bafcca0259571
+private ArrayList<MainActivityList> arrayList;
+GridAdapter gridAdapter;
+android.support.v7.widget.SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +52,9 @@ ArrayList<MainActivityList> arrayList;
 //        arrayList.add(1);
 //        arrayList.add(1);
 //        arrayList.add(1);
+        searchView = findViewById(R.id.searchWidget);
         gridPlanet=findViewById(R.id.gridPlanet);
-        GridAdapter gridAdapter=new GridAdapter(arrayList);
+        gridAdapter=new GridAdapter(arrayList);
         gridPlanet.setAdapter(gridAdapter);
 //       // getJson();
 //        ReadJson readJson=new ReadJson();
@@ -68,6 +63,20 @@ ArrayList<MainActivityList> arrayList;
 ////        setJson(json);
 
         parseJson();
+
+        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                gridAdapter.getFilter().filter(s);
+                return false;
+            }
+        });
+
 
         }
 
@@ -151,8 +160,8 @@ ArrayList<MainActivityList> arrayList;
 //
 //    }
     }
-<<<<<<< HEAD
-}
-=======
-
->>>>>>> 1020b9f62cb4d861dcb47d82190bafcca0259571
+//<<<<<<< HEAD
+//}
+//=======
+//
+//>>>>>>> 1020b9f62cb4d861dcb47d82190bafcca0259571
