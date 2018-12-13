@@ -17,41 +17,67 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:text="K"
+                android:id="@+id/tvChatAtZero"
                 android:padding="2dp"
                 android:layout_gravity="center"
-                android:textStyle="bold"
+                android:fontFamily="sans-serif"
                 android:textColor="#000"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:layout_height="19dp"
+                android:textSize="13sp"
                 android:text="Kepler 5576"
                 android:padding="1dp"
+                android:id="@+id/tvPlanetName"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="#000"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="confirmed Planet"
+                android:layout_height="20dp"
+                android:text="confirmed planet"
                 android:padding="2dp"
+                android:textSize="11sp"
+                android:id="@+id/tvIsConfirmed"
                 android:gravity="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Discoverd:2016"
+                android:textSize="11sp"
                 android:padding="2dp"
-
+                android:id="@+id/tvDiscovery"
                 android:gravity="center"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="wrap_content"
                 android:text="36 hrs/day"
                 android:padding="2dp"
                 android:gravity="center"/>
+=======
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvPeriodicDay"
+                    android:padding="2dp"
+                    android:text="20.67"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="hrs/day"
+                    android:padding="2dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+>>>>>>> 1020b9f62cb4d861dcb47d82190bafcca0259571
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
