@@ -1,10 +1,21 @@
 package com.example.himanshu.exosearch;
 
-public class MainActivityList {
+import java.io.Serializable;
+
+public class MainActivityList implements Serializable {
     String planetIdentifier;
     String listsPlanetIsOn;
     String discoveryYear;
     String periodDays;
+    String planetaryMassJpt;
+
+    public String getPlanetaryMassJpt() {
+        return planetaryMassJpt;
+    }
+
+    public void setPlanetaryMassJpt(String planetaryMassJpt) {
+        this.planetaryMassJpt = planetaryMassJpt;
+    }
 
     public String getPlanetIdentifier() {
         return planetIdentifier;

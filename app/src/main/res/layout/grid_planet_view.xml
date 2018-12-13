@@ -7,7 +7,9 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+         android:id="@+id/gridFrame"
         android:background="@drawable/modified_search_button"
+
         android:layout_margin="5dp"
         android:layout_height="match_parent" >
         <LinearLayout
@@ -70,7 +72,6 @@
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </LinearLayout>
-
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

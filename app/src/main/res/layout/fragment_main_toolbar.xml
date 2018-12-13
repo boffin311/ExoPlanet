@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:id="@+id/frameToolbarTitle"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="0dp"
+    android:layout_weight="6"
+    android:textSize="20dp"
+    android:gravity="center|left"
+    android:text="ExoSearch"
+    android:textColor="#FFF"
+    android:layout_marginLeft="10dp"
+    android:fontFamily="sans-serif-medium"
+
+    android:layout_height="match_parent" />
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <ImageView
+         android:layout_width="28dp"
+            android:layout_gravity="center"
+            android:id="@+id/imageSearch"
+            android:src="@drawable/ic_search"
+            android:layout_height="25dp" />
+    </FrameLayout>
+
+</LinearLayout>
