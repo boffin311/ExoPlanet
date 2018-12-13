@@ -1,20 +1,27 @@
 package com.example.himanshu.exosearch;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextClock;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
-public class GridAdapter extends BaseAdapter {
-   ArrayList<MainActivityList> arrayList;
+public class GridAdapter extends BaseAdapter implements Filterable {
+   private ArrayList<MainActivityList> arrayList;
+   private ArrayList<MainActivityList> _arrayList;
     MyHolder holder;
    public GridAdapter(ArrayList<MainActivityList> arrayList){
        this.arrayList=arrayList;
+       _arrayList = arrayList;
+//       this._arrayList.addAll(arrayList);
    }
     @Override
     public int getCount() {
@@ -55,6 +62,7 @@ public class GridAdapter extends BaseAdapter {
          return convertView;
 
     }
+
     private class MyHolder{
        TextView tvPlanetName,tvDiscovery,tvIsConfirmed,tvPeriodicDay,tvCharAtZero;
        public  MyHolder(View itemView)
@@ -66,4 +74,79 @@ public class GridAdapter extends BaseAdapter {
            tvPeriodicDay=itemView.findViewById(R.id.tvPeriodicDay);
        }
     }
+
+    @Override
+    public Filter getFilter() {
+
+       Filter filter = new Filter() {
+           @Override
+           protected FilterResults performFiltering(CharSequence charSequence) {
+               FilterResults results = new FilterResults();
+               ArrayList<MainActivityList> FilteredArrList = new ArrayList<>();
+
+               if (_arrayList == null) {
+                   _arrayList = new ArrayList<>(arrayList);
+               }
+               if (charSequence == null || charSequence.length() == 0) {
+
+                   // set the Original result to return
+                   results.count = _arrayList.size();
+                   results.values = _arrayList;
+               } else {
+                   charSequence.toString().toLowerCase();
+                   for (int i = 0; i < _arrayList.size(); i++) {
+                       String data = _arrayList.get(i).planetIdentifier;
+                       if (data.toLowerCase().startsWith(charSequence.toString())) {
+//                           FilteredArrList.add(new MainActivityList(_arrayList.get(i).planetIdentifier,_arrayList.get(i).listsPlanetIsOn,_arrayList.get(i).discoveryYear, _arrayList.get(i).periodDays));
+
+                           MainActivityList newList = new MainActivityList();
+                           newList.setPlanetIdentifier(_arrayList.get(i).planetIdentifier);
+                           newList.setListsPlanetIsOn(_arrayList.get(i).listsPlanetIsOn);
+                           newList.setDiscoveryYear(_arrayList.get(i).discoveryYear);
+                           newList.setPeriodDays(_arrayList.get(i).periodDays);
+
+                           FilteredArrList.add(newList);
+                       }
+                   }
+                   // set the Filtered result to return
+                   results.count = FilteredArrList.size();
+                   results.values = FilteredArrList;
+               }
+
+               return results;
+           }
+
+           @SuppressWarnings("unchecked")
+           @Override
+           protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+               arrayList = (ArrayList<MainActivityList>) filterResults.values;
+               notifyDataSetChanged();
+           }
+       };
+        return filter;
+    }
+
+//    public void filter(String nameExo){
+//       nameExo.toLowerCase();
+//
+//       _arrayList.clear();
+////       if(nameExo.length() == 0){
+////           arrayList.addAll(_arrayList);
+////       }
+////       else {
+////           for (MainActivityList list : _arrayList){
+////               if(list.getPlanetIdentifier().toLowerCase().contains(nameExo)){
+////                   arrayList.add(list);
+////               }
+////           }
+////       }
+//
+//        Log.d("Adapter", "so this is " + arrayList.size() + " " + _arrayList.size());
+//
+//
+//
+//       notifyDataSetChanged();
+//
+//    }
 }

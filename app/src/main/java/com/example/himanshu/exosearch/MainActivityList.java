@@ -6,6 +6,13 @@ public class MainActivityList {
     String discoveryYear;
     String periodDays;
 
+//    public MainActivityList(String planetIdentifier, String listsPlanetIsOn, String discoveryYear, String periodDays) {
+//        this.planetIdentifier = planetIdentifier;
+//        this.listsPlanetIsOn = listsPlanetIsOn;
+//        this.discoveryYear = discoveryYear;
+//        this.periodDays = periodDays;
+//    }
+
     public String getPlanetIdentifier() {
         return planetIdentifier;
     }
