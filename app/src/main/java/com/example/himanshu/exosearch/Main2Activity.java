@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,8 +34,9 @@ public static final String TAG="M2A";
         setSupportActionBar(toolbar);
 
         MainActivityList mainActivityList=new MainActivityList();
-      getIntent().getExtras();
+
       mainActivityList= (MainActivityList) getIntent().getExtras().getSerializable("Data");
+        Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
 
         /**
          *

@@ -117,6 +117,98 @@ android.support.v7.widget.SearchView searchView;
                          jsonParser.nextToken();
                          mainActivityList.setPlanetaryMassJpt(jsonParser.getText());
                      }
+                     if ("RadiusJpt".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setRadiusJpt(jsonParser.getText());
+                     }
+                     if ("SemiMajorAxisAU".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setSemiMajorAxisAU(jsonParser.getText());
+                     }
+                     if ("Eccentricity".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setEccentricity(jsonParser.getText());
+                     }
+                     if ("PeriastronDeg".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setPeriastronDeg(jsonParser.getText());
+                     }
+                     if ("LongitudeDeg".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setLongitudeDeg(jsonParser.getText());
+                     }
+                     if ("AscendingNodeDeg".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setAscendingNodeDeg(jsonParser.getText());
+                     }
+                     if ("InclinationDeg".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setInclinationDeg(jsonParser.getText());
+                     }
+                     if ("SurfaceTempK".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setSurfaceTempK(jsonParser.getText());
+                     }
+                     if ("AgeGyr".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setAgeGyr(jsonParser.getText());
+                     }
+                     if ("DiscoveryMethod".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setDiscoveryMethod(jsonParser.getText());
+                     }
+                     if ("LastUpdated".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setLastUpdated(jsonParser.getText());
+                     }
+                     if ("RightAscension".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setRightAscension(jsonParser.getText());
+                     }
+                     if ("Declination".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setDeclination(jsonParser.getText());
+                     }
+                     if ("HostStarMassSlrMass".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setHostStarMassSlrMass(jsonParser.getText());
+                     }
+                     if ("HostStarRadiusSlrRad".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setHostStarRadiusSlrRad(jsonParser.getText());
+                     }
+                     if ("HostStarMetallicity".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setHostStarMetallicity(jsonParser.getText());
+                     }
+                     if ("HostStarTempK".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setHostStarTempK(jsonParser.getText());
+                     }
+                     if ("HostStarAgeGyr".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         mainActivityList.setHostStarAgeGyr(jsonParser.getText());
+                     }
+
+
                  }
                  arrayList.add(mainActivityList);
 
@@ -125,6 +217,25 @@ android.support.v7.widget.SearchView searchView;
              e.printStackTrace();
          }
      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
