@@ -1,6 +1,6 @@
 package com.example.himanshu.exosearch.Fragments;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
+
 import android.widget.ImageView;
 
 
@@ -33,6 +33,7 @@ public class FragmentSearch extends Fragment {
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                searchView.setQuery(null,true);
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
