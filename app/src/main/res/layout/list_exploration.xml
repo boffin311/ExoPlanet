@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/linearContent"
+            android:layout_height="wrap_content">
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="20sp"-->
+                <!--android:text="How far is this Planet"-->
+                <!--android:id="@+id/tvChatAtZero"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:paddingBottom="2dp"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingLeft="16dp"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:fontFamily="sans-serif"-->
+                <!--android:textColor="#000"/>-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="13sp"
+                android:text="How far is this ?"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="2dp"
+                android:paddingLeft="16dp"
+                android:id="@+id/question"
+                android:layout_gravity="left"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You cant imagine blah blaah blaaahblaaah"
+                android:paddingTop="2dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="2dp"
+                android:paddingLeft="16dp"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:id="@+id/short_answer"
+                android:gravity="left"/>
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="You cant imagine blah blaah blaaahblaaah"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:paddingBottom="10dp"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingLeft="16dp"-->
+                <!--android:textSize="11sp"-->
+                <!--android:id="@+id/long_ans"-->
+                <!--android:visibility="gone"-->
+                <!--android:gravity="left"/>-->
+
+        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearMoreInfo"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:visibility="gone"-->
+                        <!--android:layout_height="wrap_content">-->
+
+
+                        <TextView
+                            android:id="@+id/moreInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+
+                            android:padding="16dp"
+                            android:text="confirmed planet"
+                            android:textSize="11sp" />
+
+                    <!--</LinearLayout>-->
+                <!--</FrameLayout>-->
+            </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
