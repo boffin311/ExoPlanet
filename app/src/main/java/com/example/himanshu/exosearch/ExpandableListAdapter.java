@@ -94,12 +94,13 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
         String value=unitArrayList.get(i);
       //  holder.question.setText(questionArrayList.get(i));
         if(value.contains("null") | value.equals("") | value.equals("°") | value.equals("K")) {
-
             holder.shortAns.setText("Not Available");
         }else
             holder.shortAns.setText(value);
 
-        holder.moreInfo.setText(detailArrayList.get(i));
+            holder.moreInfo.setText(detailArrayList.get(i));
+
+
     }
 
     @Override

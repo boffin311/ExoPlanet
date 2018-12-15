@@ -174,31 +174,36 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
 
 
 
-        moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ ");
+    moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
+            "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" );
 
-        moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ");
-        moreInfo.add("It is the revolution period of the planet around its star in terms of earth days");
+
+        moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
+                "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n");
+        moreInfo.add("It is the revolution period of the planet around its star in terms of earth days \n\n" + "" +
+                "In astronomy, the rotation/revolution period of a celestial object is the time that it takes to complete one revolution around its axis of rotation relative to the background stars. It differs from the planet's solar day, which includes an extra fractional rotation needed to accommodate the portion of the planet's orbital period during one day. \n");
         moreInfo.add("The semi-major axis is one half of the major axis, and thus runs from the centre, through a focus, and to the perimeter. For the special case of a circle, the semi-major axis is the radius." +
                 " It is given in Astronomical Unit");
         moreInfo.add("The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptic orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola. ");
         moreInfo.add("The point of the orbit of a celestial body that is closest to the star around which the body is orbiting. ");
-        moreInfo.add("It is the Mean Longitude");
-        moreInfo.add("Longitude of ascending node ");
-        moreInfo.add("Orbital inclination");
-        moreInfo.add("Temperature at surface in Kelvin ");
-        moreInfo.add("Age of planet in terms of Giga year or Billion year ");
-        moreInfo.add("Method of Discovery ");
-        moreInfo.add("Discovery year");
+        moreInfo.add("Mean longitude is the ecliptic longitude at which an orbiting body could be found if its orbit were circular and free of perturbations. While nominally a simple longitude, in practice the mean longitude does not correspond to any one physical angle. \n");
+        moreInfo.add("The longitude of the ascending node (☊ or Ω) is one of the orbital elements used to specify the orbit of an object in space. It is the angle from a reference direction, called the origin of longitude, to the direction of the ascending node, measured in a reference plane. The ascending node is the point where the orbit of the object passes through the plane of reference, as seen in the adjacent image. Commonly used reference planes and origins of longitude include: \n");
+        moreInfo.add("Orbital inclination measures the tilt of an object's orbit around a celestial body. It is expressed as the angle between a reference plane and the orbital plane or axis of direction of the orbiting object. \n");
+        moreInfo.add("Temperature at surface in Kelvin \n ");
+        moreInfo.add("Age of planet in terms of Giga year or Billion year \n");
+        moreInfo.add("Any planet is an extremely faint light source compared to its parent star. For example, a star like the Sun is about a billion times as bright as the reflected light from any of the planets orbiting it. In addition to the intrinsic difficulty of detecting such a faint light source, the light from the parent star causes a glare that washes it out. For those reasons, very few of the extrasolar planets reported as of April 2014 have been observed directly, with even fewer being resolved from their host star. \n");
+        moreInfo.add("Year in which the planet was discovered \n");
         moreInfo.add("Last date it was updated in yy/mm/dd format ");
         moreInfo.add("RA and DEC are to the sky what longitude and latitude are to the surface of the Earth. RA corresponds to East/West directions (like longitude) while DEC measures North/South directions (like latitude).");
         moreInfo.add("RA and DEC are to the sky what longitude and latitude are to the surface of the Earth. RA corresponds to East/West directions (like longitude) while DEC measures North/South directions (like latitude). ");
         moreInfo.add("Distance of planet from our sun in Parsec. One parsec is 3.26 light years");
         moreInfo.add("Host Star mass relative to mass of of Sun Mass denoted by Msun.");
         moreInfo.add("Host Star radius relative to radius of of Sun Mass denoted by Rsun ");
-        moreInfo.add("Metallicity, ratio of Iron and Hydrogen ");
+        moreInfo.add("Metallicity, ratio of Iron and Hydrogen \n\n" + "" +
+                "In astronomy, metallicity is used to describe the abundance of elements present in an object that are heavier than hydrogen or helium. Most of the physical matter in the Universe is in the form of hydrogen and helium, so astronomers use the word \"metals\" as a convenient short term for \"all elements except hydrogen and helium\". This usage is distinct from the usual physical definition of a solid metal. For example, stars and nebulae with relatively high abundances of carbon, nitrogen, oxygen, and neon are called \"metal-rich\" in astrophysical terms, even though those elements are non-metals in chemistry.\n");
         moreInfo.add("Temperature of Host Star in Kelvin ");
         moreInfo.add("Host Star age in Giga year or billion year ");
-        moreInfo.add("Confirmed or Controversial");
+        moreInfo.add("Confirmed, Controversial or in Solar System");
 
 
 
