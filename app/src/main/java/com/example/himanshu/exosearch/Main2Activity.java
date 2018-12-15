@@ -1,12 +1,16 @@
 package com.example.himanshu.exosearch;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +25,8 @@ ArrayList<String> questions = new ArrayList<>();
 ArrayList<String> shortAns = new ArrayList<>();
 ArrayList<String> moreInfo = new ArrayList<>();
     MainActivityList mainActivityList;
-    TextView nameOfPlanet;
+    CardView cardMoreInfo;
+    TextView nameOfPlanet,tvMoreInfoBox,tvMoreInfoDescription;
     RecyclerView rvParticularData;
 
 
@@ -32,9 +37,12 @@ public static final String TAG="M2A";
         setContentView(R.layout.activity_main2);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
-         nameOfPlanet=findViewById(R.id.nameofplanet);
+         nameOfPlanet=findViewById(R.id.nameofPlanet);
         rvExtraTopic=findViewById(R.id.rvExtraTopic);
         rvExtraTopic.setLayoutManager(new LinearLayoutManager(this));
+tvMoreInfoBox=findViewById(R.id.tvMoreInfoBox);
+tvMoreInfoDescription=findViewById(R.id.tvMoreInfoDescription);
+cardMoreInfo=findViewById(R.id.CardMoreInfo);
 
 
 //     rvParticularData=findViewById(R.id.rvParticularData);
@@ -57,6 +65,7 @@ public static final String TAG="M2A";
          * Yha pe intent ke sath data liya and uske according math laga ke solve kiya and 2 list ko combine kar diya
          *
          */
+
 
 
 //        questions.add("Planetary Mass");
@@ -111,6 +120,60 @@ public static final String TAG="M2A";
 
 
         moreInfo.add("Name of the planet according to NASA");
+
+        questions.add("Planetary Mass");
+        questions.add("Radius");
+        questions.add("Period Days");
+        questions.add("Semi Major Axis");
+        questions.add("Eccentricity");
+        questions.add("Periastron");
+        questions.add("Longitude");
+        questions.add("Ascending Node");
+        questions.add("Inclination");
+        questions.add("Surface Temperature");
+        questions.add("Age");
+        questions.add("Discovery Method");
+        questions.add("Discovery Year");
+        questions.add("Last Updated");
+        questions.add("Right Ascension");
+        questions.add("Declination");
+        questions.add("Distance From Sun");
+        questions.add("Host Star Mass");
+        questions.add("Host Star Radius");
+        questions.add("Host Star Metallicity");
+        questions.add("Host Star Temperature");
+        questions.add("Host Star Age");
+        questions.add("Lists Planet Is On");
+        questions.add("MORE INFORMATION");
+
+        shortAns.add(mainActivityList.getParticularData().get(1).getValue() + " MJ");
+        shortAns.add(mainActivityList.getParticularData().get(2).getValue() + " RJ");
+        shortAns.add(mainActivityList.getParticularData().get(3).getValue() + " days");
+        shortAns.add(mainActivityList.getParticularData().get(4).getValue() + " AU");
+        shortAns.add(mainActivityList.getParticularData().get(5).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(6).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(7).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(8).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(9).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(10).getValue()+ " K");
+        shortAns.add(mainActivityList.getParticularData().get(11).getValue() + " Billion Years");
+        shortAns.add(mainActivityList.getParticularData().get(12).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(13).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(14).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(15).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(16).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(17).getValue()+ " Parsec");
+        shortAns.add(mainActivityList.getParticularData().get(18).getValue()+ " Msun");
+        shortAns.add(mainActivityList.getParticularData().get(19).getValue()+ " Rsun");
+        shortAns.add(mainActivityList.getParticularData().get(20).getValue()+ " [Fe/H]");
+        shortAns.add(mainActivityList.getParticularData().get(21).getValue()+ " K");
+        shortAns.add(mainActivityList.getParticularData().get(22).getValue()+" Billion years");
+        shortAns.add(mainActivityList.getParticularData().get(23).getValue());
+        shortAns.add("more info about the host star and its planets");
+
+
+
+
         moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ ");
 
         moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ");
@@ -136,6 +199,7 @@ public static final String TAG="M2A";
         moreInfo.add("Temperature of Host Star in Kelvin ");
         moreInfo.add("Host Star age in Giga year or billion year ");
         moreInfo.add("Confirmed or Controversial");
+        moreInfo.add(mainActivityList.getParticularData().get(0).getValue());
 
 
 
@@ -154,10 +218,23 @@ public static final String TAG="M2A";
 //            allInfo.add(moreInfoContent);
 //
 //        }
+/**
+ More Info link is after this
 
-
-
-       
+ */
+cardMoreInfo.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String formatName = mainActivityList.getPlanetIdentifier().replace(" ", "%20");
+        String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
+        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(browse);
+    }
+});
+//        String formatName = mainActivityList.getPlanetIdentifier().replace(" ", "%20");
+//                         String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
+//                         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                         this.startActivity(browse);
 
 
     }
