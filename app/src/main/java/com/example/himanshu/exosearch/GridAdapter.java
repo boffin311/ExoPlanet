@@ -103,7 +103,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                FilterResults results = new FilterResults();
                Log.d(TAG, "performFiltering: "+"I am in filters" );
                ArrayList<MainActivityList> FilteredArrList = new ArrayList<>();
-               Log.d(TAG, "performFiltering: "+_arrayList);
+               Log.d(TAG, "performFiltering: "+arrayList.size());
                if (_arrayList == null) {
                    _arrayList = new ArrayList<>(arrayList);
                }
@@ -127,7 +127,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                            newList.setListsPlanetIsOn(_arrayList.get(i).listsPlanetIsOn);
                            newList.setDiscoveryYear(_arrayList.get(i).discoveryYear);
                            newList.setPeriodDays(_arrayList.get(i).periodDays);
-                           newList.setArrayList(arrayList.get(i).particularData);
+                          newList.setArrayList(_arrayList.get(i).particularData);
 
                            FilteredArrList.add(newList);
                        }
