@@ -39,7 +39,7 @@ public static final String TAG="M2A";
         rvExtraTopic.setLayoutManager(new LinearLayoutManager(this));
          tvMoreInfoBox=findViewById(R.id.tvMoreInfoBox);
         tvMoreInfoDescription=findViewById(R.id.tvMoreInfoDescription);
-         cardMoreInfo=findViewById(R.id.CardMoreInfo);
+//         cardMoreInfo=findViewById(R.id.CardMoreInfo);
 
 
 
@@ -121,7 +121,7 @@ public static final String TAG="M2A";
      try{
              moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
                              "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n"+
-                     "Radius in kilometer:"+" "+String.valueOf((Float.valueOf(mainGridList.getParticularData().get(2).getValue())*69911)));
+                     " \n Radius (KM):"+" "+String.valueOf((Float.valueOf(mainGridList.getParticularData().get(2).getValue())*69911)) + " KM");
              Log.d(TAG, "onCreate: "+"I am here again" );
          }
          catch (Exception e)
@@ -158,7 +158,7 @@ public static final String TAG="M2A";
 
 
 
-        cardMoreInfo.setOnClickListener(new View.OnClickListener() {
+        tvMoreInfoBox.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
             String formatName = mainGridList.getPlanetIdentifier().replace(" ", "%20");
