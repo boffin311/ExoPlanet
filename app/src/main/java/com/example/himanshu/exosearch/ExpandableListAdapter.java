@@ -30,11 +30,11 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
 
 
 
-    ArrayList<ParticularData> particularDataArrayList;
+    ArrayList<String> questionArrayList;
     ArrayList<String> unitArrayList;
     ArrayList<String> detailArrayList;
-    public ExpandableListAdapter(ArrayList<ParticularData> particularData,ArrayList<String> detailArrayList,ArrayList<String>unitArrayList) {
-        this.particularDataArrayList = particularData;
+    public ExpandableListAdapter(ArrayList<String> questionArrayList,ArrayList<String> detailArrayList,ArrayList<String>unitArrayList) {
+        this.questionArrayList = questionArrayList;
         this.detailArrayList=detailArrayList;
         this.unitArrayList=unitArrayList;
     }
@@ -51,9 +51,9 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
 
 
-        ParticularData particularData=particularDataArrayList.get(i);
-        holder.question.setText(particularData.getTopic());
-        if(particularData.getValue().contains("null") | particularData.getValue().equals("") | particularData.getValue().equals("°") | particularData.getValue().equals("K")) {
+
+        holder.question.setText(questionArrayList.get(i));
+   //   if(particularData.getValue().contains("null") | particularData.getValue().equals("") | particularData.getValue().equals("°") | particularData.getValue().equals("K")) {
 
 
 //        holder.linearContent.setOnClickListener(new View.OnClickListener() {
@@ -88,22 +88,23 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
 //            holder.linearContent.setBackgroundColor(Color.DKGRAY);
 //            holder.question.setTextColor(Color.WHITE);
 //            holder.shortAns.setTextColor(Color.WHITE);
-        }
+     //   }
 
 //        MoreInfoContent moreInfoContent = _listDataHeader.get(i);
-        holder.question.setText(particularData.getTopic());
-        if(particularData.getValue().contains("null") | particularData.getValue().equals("") | particularData.getValue().equals("°") | particularData.getValue().equals("K")) {
+        String value=unitArrayList.get(i);
+      //  holder.question.setText(questionArrayList.get(i));
+        if(value.contains("null") | value.equals("") | value.equals("°") | value.equals("K")) {
 
             holder.shortAns.setText("Not Available");
         }else
-            holder.shortAns.setText(particularData.getValue()+unitArrayList.get(i));
+            holder.shortAns.setText(value);
 
         holder.moreInfo.setText(detailArrayList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return  particularDataArrayList.size();
+        return  questionArrayList.size();
     }
 
 
