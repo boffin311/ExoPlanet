@@ -10,7 +10,7 @@
          android:id="@+id/gridFrame"
         android:background="@drawable/modified_search_button"
 
-        android:layout_margin="5dp"
+        android:layout_margin="3dp"
         android:layout_height="match_parent" >
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
-                android:textColor="#000"/>
+                android:textColor="#FFF"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
@@ -35,20 +35,22 @@
                 android:id="@+id/tvPlanetName"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textColor="#FFF"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:text="confirmed planet"
                 android:padding="2dp"
-                android:textSize="11sp"
+                android:textSize="10sp"
+                android:textColor="#FFF"
                 android:id="@+id/tvIsConfirmed"
                 android:gravity="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:padding="2dp"
+                android:textColor="#FFF"
                 android:id="@+id/tvDiscovery"
                 android:gravity="center"/>
 
@@ -62,6 +64,8 @@
                     android:id="@+id/tvPeriodicDay"
                     android:padding="2dp"
                     android:text="20.67"
+                    android:textSize="10sp"
+                    android:textColor="#FFF"
                     android:gravity="center"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,6 +73,7 @@
                     android:textSize="10sp"
                     android:text="hrs/day"
                     android:padding="2dp"
+                    android:textColor="#FFF"
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </LinearLayout>

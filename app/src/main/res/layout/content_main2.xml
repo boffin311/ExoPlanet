@@ -4,64 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
     tools:context=".Main2Activity"
+
     tools:showIn="@layout/activity_main2">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants"
+            android:background="@color/colorPrimary"
             android:layout_height="match_parent">
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/nameofplanet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="hikajsdflkjaskdlfjklasdjf"/>
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:textColor="#FFF"
+                android:padding="10dp"
+                android:fontFamily="@font/oswald"
+               />
+           </FrameLayout>
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:visibility="gone"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:elevation="5dp"-->
+                <!--app:cardCornerRadius="3dp">-->
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:id="@+id/rvParticularData"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:nestedScrollingEnabled="false"-->
+                    <!--android:layout_height="match_parent">-->
+
+                <!--</android.support.v7.widget.RecyclerView>-->
+            <!--</android.support.v7.widget.CardView>-->
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="20dp"
-                android:elevation="5dp"
-                app:cardCornerRadius="3dp">
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:id="@+id/rvParticularData"
-                    android:padding="10dp"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_height="match_parent">
-
-                </android.support.v7.widget.RecyclerView>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#375980"
                 android:elevation="5dp"
                 app:cardCornerRadius="3dp">
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:id="@+id/rvExtraTopic"
                     android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
 
+                    android:layout_marginLeft="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
                     android:paddingTop="16dp"
-                    android:nestedScrollingEnabled="false"
+
                     android:layout_height="match_parent">
                 </android.support.v7.widget.RecyclerView>
             </android.support.v7.widget.CardView>
 
         </LinearLayout>
-    </FrameLayout>
+
 </android.support.v4.widget.NestedScrollView>
 

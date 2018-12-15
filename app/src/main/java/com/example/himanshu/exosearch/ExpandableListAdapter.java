@@ -19,16 +19,18 @@ import java.util.List;
 
 public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAdapter.MyHolder> {
 
-    private Context _context;
+
     private MyHolder holder;
     public static final String TAG="ELA";
-    private ArrayList<MoreInfoContent> _listDataHeader;
 
-    public ExpandableListAdapter(Context context, ArrayList<MoreInfoContent> listDataHeader){
 
-        this._context = context;
-        this._listDataHeader = listDataHeader;
-
+    ArrayList<ParticularData> particularDataArrayList;
+    ArrayList<String> unitArrayList;
+    ArrayList<String> detailArrayList;
+    public ExpandableListAdapter(ArrayList<ParticularData> particularData,ArrayList<String> detailArrayList,ArrayList<String>unitArrayList) {
+        this.particularDataArrayList = particularData;
+        this.detailArrayList=detailArrayList;
+        this.unitArrayList=unitArrayList;
     }
 
     @NonNull
@@ -41,40 +43,21 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
-        holder.linearContent.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-
-                          Log.d(TAG, "onClick: "+"I am clicked");
-                     View view1=(View)v.getParent();
-                     LinearLayout linear=view1.findViewById(R.id.linearMoreInfo);
-                     if (linear.getVisibility()==View.GONE)
-                     {linear.setVisibility(View.VISIBLE);
-                         Log.d(TAG, "onClick: "+"I am clicked and my visibility is gone");
-                     }
-                     else
-                     { Log.d(TAG, "onClick: "+"I am clicked and my Visibility is visible");
-                         linear.setVisibility(View.GONE);
-                         }
 
 
-                      }
-                  });
-
-
-        MoreInfoContent moreInfoContent = _listDataHeader.get(i);
-        holder.question.setText(moreInfoContent.getQuestions());
-        if(moreInfoContent.getShort_ans().contains("null") | moreInfoContent.getShort_ans().equals("") | moreInfoContent.getShort_ans().equals("°") | moreInfoContent.getShort_ans().equals("K")) {
+        ParticularData particularData=particularDataArrayList.get(i);
+        holder.question.setText(particularData.getTopic());
+        if(particularData.getValue().contains("null") | particularData.getValue().equals("") | particularData.getValue().equals("°") | particularData.getValue().equals("K")) {
             holder.shortAns.setText("Not Available");
         }else
-            holder.shortAns.setText(moreInfoContent.getShort_ans());
+            holder.shortAns.setText(particularData.getValue()+unitArrayList.get(i));
 
-        holder.moreInfo.setText(moreInfoContent.getMoreInfo());
+        holder.moreInfo.setText(detailArrayList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return  _listDataHeader.size();
+        return  particularDataArrayList.size();
     }
 
 

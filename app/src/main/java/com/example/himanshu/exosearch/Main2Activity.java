@@ -21,9 +21,8 @@ ArrayList<String> questions = new ArrayList<>();
 ArrayList<String> shortAns = new ArrayList<>();
 ArrayList<String> moreInfo = new ArrayList<>();
     MainActivityList mainActivityList;
+    TextView nameOfPlanet;
     RecyclerView rvParticularData;
-    ExpandedRecyclerAdapter expandedRecyclerAdapter;
-ArrayList<MoreInfoContent> allInfo = new ArrayList<>();
 
 
 public static final String TAG="M2A";
@@ -33,25 +32,26 @@ public static final String TAG="M2A";
         setContentView(R.layout.activity_main2);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
-        expandableListAdapter = new ExpandableListAdapter(this, allInfo);
-
+         nameOfPlanet=findViewById(R.id.nameofplanet);
         rvExtraTopic=findViewById(R.id.rvExtraTopic);
         rvExtraTopic.setLayoutManager(new LinearLayoutManager(this));
-        rvExtraTopic.setAdapter(expandableListAdapter);
 
-     rvParticularData=findViewById(R.id.rvParticularData);
-     rvParticularData.setLayoutManager(new LinearLayoutManager(this));
+
+//     rvParticularData=findViewById(R.id.rvParticularData);
+//     rvParticularData.setLayoutManager(new LinearLayoutManager(this));
       mainActivityList= (MainActivityList) getIntent().getExtras().getSerializable("Data");
-       // Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
+        expandableListAdapter = new ExpandableListAdapter(mainActivityList.getParticularData(),moreInfo,shortAns);
+        rvExtraTopic.setAdapter(expandableListAdapter);
+        // Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
 
 
 
         //Recycler view Adapter set for simple data
 
 //        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData());
-        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(allInfo);
-
-        rvParticularData.setAdapter(expandedRecyclerAdapter);
+      //  expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData(),moreInfo,shortAns);
+        nameOfPlanet.setText(mainActivityList.getParticularData().get(0).getValue());
+     //   rvParticularData.setAdapter(expandedRecyclerAdapter);
         /**
          *
          * Yha pe intent ke sath data liya and uske according math laga ke solve kiya and 2 list ko combine kar diya
@@ -59,57 +59,60 @@ public static final String TAG="M2A";
          */
 
 
-        questions.add("Planetary Mass");
-        questions.add("Radius");
-        questions.add("Period Days");
-        questions.add("Semi Major Axis");
-        questions.add("Eccentricity");
-        questions.add("Periastron");
-        questions.add("Longitude");
-        questions.add("Ascending Node");
-        questions.add("Inclination");
-        questions.add("Surface Temperature");
-        questions.add("Age");
-        questions.add("Discovery Method");
-        questions.add("Discovery Year");
-        questions.add("Last Updated");
-        questions.add("Right Ascension");
-        questions.add("Declination");
-        questions.add("Distance From Sun");
-        questions.add("Host Star Mass");
-        questions.add("Host Star Radius");
-        questions.add("Host Star Metallicity");
-        questions.add("Host Star Temperature");
-        questions.add("Host Star Age");
-        questions.add("Lists Planet Is On");
+//        questions.add("Planetary Mass");
+//        questions.add("Radius");
+//        questions.add("Period Days");
+//        questions.add("Semi Major Axis");
+//        questions.add("Eccentricity");
+//        questions.add("Periastron");
+//        questions.add("Longitude");
+//        questions.add("Ascending Node");
+//        questions.add("Inclination");
+//        questions.add("Surface Temperature");
+//        questions.add("Age");
+//        questions.add("Discovery Method");
+//        questions.add("Discovery Year");
+//        questions.add("Last Updated");
+//        questions.add("Right Ascension");
+//        questions.add("Declination");
+//        questions.add("Distance From Sun");
+//        questions.add("Host Star Mass");
+//        questions.add("Host Star Radius");
+//        questions.add("Host Star Metallicity");
+//        questions.add("Host Star Temperature");
+//        questions.add("Host Star Age");
+//        questions.add("Lists Planet Is On");
 
-        shortAns.add(mainActivityList.getParticularData().get(1).getValue() + " MJ");
-        shortAns.add(mainActivityList.getParticularData().get(2).getValue() + " RJ");
-        shortAns.add(mainActivityList.getParticularData().get(3).getValue() + " days");
-        shortAns.add(mainActivityList.getParticularData().get(4).getValue() + " AU");
-        shortAns.add(mainActivityList.getParticularData().get(5).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(6).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(7).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(8).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(9).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(10).getValue()+ " K");
-        shortAns.add(mainActivityList.getParticularData().get(11).getValue() + " Billion Years");
-        shortAns.add(mainActivityList.getParticularData().get(12).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(13).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(14).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(15).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(16).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(17).getValue()+ " Parsec");
-        shortAns.add(mainActivityList.getParticularData().get(18).getValue()+ " Msun");
-        shortAns.add(mainActivityList.getParticularData().get(19).getValue()+ " Rsun");
-        shortAns.add(mainActivityList.getParticularData().get(20).getValue()+ " [Fe/H]");
-        shortAns.add(mainActivityList.getParticularData().get(21).getValue()+ " K");
-        shortAns.add(mainActivityList.getParticularData().get(22).getValue()+" Billion years");
-        shortAns.add(mainActivityList.getParticularData().get(23).getValue());
+        shortAns.add("");
+        shortAns.add(" MJ");
+        shortAns.add(" RJ");
+        shortAns.add(" days");
+        shortAns.add( " AU");
+        shortAns.add("");
+        shortAns.add("°");
+        shortAns.add("°");
+        shortAns.add("°");
+        shortAns.add( "°");
+        shortAns.add( " K");
+        shortAns.add( " Billion Years");
+        shortAns.add("");
+        shortAns.add("");
+        shortAns.add("");
+        shortAns.add("");
+        shortAns.add("");
+        shortAns.add( " Parsec");
+        shortAns.add(" Msun");
+        shortAns.add( " Rsun");
+        shortAns.add( " [Fe/H]");
+        shortAns.add(" K");
+        shortAns.add(" Billion years");
+        shortAns.add("");
+//
 
 
-
+        moreInfo.add("Name of the planet according to NASA");
         moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ ");
+
         moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ");
         moreInfo.add("It is the revolution period of the planet around its star in terms of earth days");
         moreInfo.add("The semi-major axis is one half of the major axis, and thus runs from the centre, through a focus, and to the perimeter. For the special case of a circle, the semi-major axis is the radius." +
@@ -140,22 +143,21 @@ public static final String TAG="M2A";
          *
          * now we have to call
          */
+//
+//        for (int i=0; i<questions.size(); i++){
+//
+//            MoreInfoContent moreInfoContent = new MoreInfoContent();
+//            moreInfoContent.setQuestions(questions.get(i));
+//            moreInfoContent.setShort_ans(shortAns.get(i));
+//            moreInfoContent.setMoreInfo(moreInfo.get(i));
+//
+//            allInfo.add(moreInfoContent);
+//
+//        }
 
-        for (int i=0; i<questions.size(); i++){
-
-            MoreInfoContent moreInfoContent = new MoreInfoContent();
-            moreInfoContent.setQuestions(questions.get(i));
-            moreInfoContent.setShort_ans(shortAns.get(i));
-            moreInfoContent.setMoreInfo(moreInfo.get(i));
-
-            allInfo.add(moreInfoContent);
-
-        }
 
 
-
-        TextView textView = findViewById(R.id.nameofplanet);
-        textView.setText("hi man");
+       
 
 
     }
