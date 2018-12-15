@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class FragmentSearch extends Fragment {
      SearchView searchView;
     GridAdapter gridAdapter;
     ImageView imageBack;
+    public static final String TAG="FS";
 
     @Nullable
     @Override
@@ -49,6 +51,7 @@ public class FragmentSearch extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                Log.d(TAG, "onQueryTextChange: "+"I am here" );
                 gridAdapter.getFilter().filter(s);
 
                 return false;

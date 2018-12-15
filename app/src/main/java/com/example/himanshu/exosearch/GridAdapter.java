@@ -22,6 +22,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
    private ArrayList<MainActivityList> arrayList;
    private ArrayList<MainActivityList> _arrayList;
    Activity activity;
+   public static final String TAG="GA";
     MyHolder holder;
    public GridAdapter(ArrayList<MainActivityList> arrayList,Activity activity){
        this.arrayList=arrayList;
@@ -68,7 +69,9 @@ public class GridAdapter extends BaseAdapter implements Filterable {
          holder. gridFrame.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+
                  Intent intent=new Intent(activity,Main2Activity.class);
+                 Log.d(TAG, "onClick: "+arrayList.get(position).getPlanetIdentifier()+"    "+arrayList.get(0).getParticularData().size());
                  intent.putExtra("Data",arrayList.get(position));
                  activity.getBaseContext().startActivity(intent);
              }
@@ -98,19 +101,23 @@ public class GridAdapter extends BaseAdapter implements Filterable {
            @Override
            protected FilterResults performFiltering(CharSequence charSequence) {
                FilterResults results = new FilterResults();
+               Log.d(TAG, "performFiltering: "+"I am in filters" );
                ArrayList<MainActivityList> FilteredArrList = new ArrayList<>();
-
+               Log.d(TAG, "performFiltering: "+_arrayList);
                if (_arrayList == null) {
                    _arrayList = new ArrayList<>(arrayList);
                }
                if (charSequence == null || charSequence.length() == 0) {
 
                    // set the Original result to return
+                   Log.d(TAG, "performFiltering: "+" I am inside negative condition");
                    results.count = _arrayList.size();
                    results.values = _arrayList;
                } else {
                    charSequence.toString().toLowerCase();
+                  // Log.d(TAG, "performFiltering: "+"I am inside positive condition"+ charSequence.toString().toLowerCase());
                    for (int i = 0; i < _arrayList.size(); i++) {
+                  //     Log.d(TAG, "performFiltering: "+"I am insdide for loop"+arrayList.size());
                        String data = _arrayList.get(i).planetIdentifier;
                        if (data.toLowerCase().startsWith(charSequence.toString())) {
 
@@ -120,6 +127,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                            newList.setListsPlanetIsOn(_arrayList.get(i).listsPlanetIsOn);
                            newList.setDiscoveryYear(_arrayList.get(i).discoveryYear);
                            newList.setPeriodDays(_arrayList.get(i).periodDays);
+                           newList.setArrayList(arrayList.get(i).particularData);
 
                            FilteredArrList.add(newList);
                        }

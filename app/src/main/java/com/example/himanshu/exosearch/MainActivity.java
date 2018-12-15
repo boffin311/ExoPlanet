@@ -31,6 +31,7 @@ private ArrayList<MainActivityList> arrayList;
 GridAdapter gridAdapter;
 FrameLayout frameToolbar;
 LinearLayout frameToolbarTitle;
+ArrayList<ParticularData> particularData;
 android.support.v7.widget.SearchView searchView;
 
     @Override
@@ -90,126 +91,171 @@ android.support.v7.widget.SearchView searchView;
              JsonParser jsonParser=jsonFactory.createParser(inputStream);
              while (jsonParser.nextToken()!=JsonToken.END_ARRAY)
              {    MainActivityList mainActivityList=new MainActivityList();
+             particularData =new ArrayList<>();
                  while(jsonParser.nextToken()!=JsonToken.END_OBJECT) {
                      String token=jsonParser.getCurrentName();
                      if ("PlanetIdentifier".equals(token)) {
                          jsonParser.nextToken();
                          mainActivityList.setPlanetIdentifier(jsonParser.getText());
+                         particularData.add(new ParticularData("PlanetIdentifier",jsonParser.getText()));
                          //Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
                      if ("ListsPlanetIsOn".equals(token)) {
                          jsonParser.nextToken();
+                         particularData.add(new ParticularData("ListsPlanetIsOn",jsonParser.getText()));
+
                          mainActivityList.setListsPlanetIsOn(jsonParser.getText());
                       //   Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
                      if ("DiscoveryYear".equals(token)) {
                          jsonParser.nextToken();
+                         particularData.add(new ParticularData("DiscoveryYear",jsonParser.getText()));
+
                          mainActivityList.setDiscoveryYear(jsonParser.getText());
                         // Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
                      if ("PeriodDays".equals(token)) {
                          jsonParser.nextToken();
+                         particularData.add(new ParticularData("PeriodDays",jsonParser.getText()));
+
                          mainActivityList.setPeriodDays(jsonParser.getText());
 //                         Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
                      if ("PlanetaryMassJpt".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setPlanetaryMassJpt(jsonParser.getText());
+                         particularData.add(new ParticularData("PlanetaryMassJpt",jsonParser.getText()));
+                        // mainActivityList.setPlanetaryMassJpt(jsonParser.getText());
                      }
                      if ("RadiusJpt".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setRadiusJpt(jsonParser.getText());
+                         particularData.add(new ParticularData("RadiusJpt",jsonParser.getText()));
+
+                      //   mainActivityList.setRadiusJpt(jsonParser.getText());
                      }
                      if ("SemiMajorAxisAU".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setSemiMajorAxisAU(jsonParser.getText());
+                         particularData.add(new ParticularData("SemiMajorAxisAU",jsonParser.getText()));
+
+                        // mainActivityList.setSemiMajorAxisAU(jsonParser.getText());
                      }
                      if ("Eccentricity".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setEccentricity(jsonParser.getText());
+                         particularData.add(new ParticularData("Eccentricity",jsonParser.getText()));
+                         //mainActivityList.setEccentricity(jsonParser.getText());
                      }
                      if ("PeriastronDeg".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setPeriastronDeg(jsonParser.getText());
+                         particularData.add(new ParticularData("PeriastronDeg",jsonParser.getText()));
+
+                        // mainActivityList.setPeriastronDeg(jsonParser.getText());
                      }
                      if ("LongitudeDeg".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setLongitudeDeg(jsonParser.getText());
+                          particularData.add(new ParticularData("LongitudeDeg",jsonParser.getText()));
+
+                         //mainActivityList.setLongitudeDeg(jsonParser.getText());
                      }
                      if ("AscendingNodeDeg".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setAscendingNodeDeg(jsonParser.getText());
+                         particularData.add(new ParticularData("AscendingNodeDeg",jsonParser.getText()));
+
+                         // mainActivityList.setAscendingNodeDeg(jsonParser.getText());
                      }
                      if ("InclinationDeg".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setInclinationDeg(jsonParser.getText());
+                         particularData.add(new ParticularData("InclinationDeg",jsonParser.getText()));
+
+                         // mainActivityList.setInclinationDeg(jsonParser.getText());
                      }
                      if ("SurfaceTempK".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setSurfaceTempK(jsonParser.getText());
+                         particularData.add(new ParticularData("SurfaceTempK",jsonParser.getText()));
+
+                         // mainActivityList.setSurfaceTempK(jsonParser.getText());
                      }
                      if ("AgeGyr".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setAgeGyr(jsonParser.getText());
+                         particularData.add(new ParticularData("AgeGyr",jsonParser.getText()));
+
+                         //  mainActivityList.setAgeGyr(jsonParser.getText());
                      }
                      if ("DiscoveryMethod".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setDiscoveryMethod(jsonParser.getText());
+                         particularData.add(new ParticularData("DiscoveryMethod",jsonParser.getText()));
+
+                         // mainActivityList.setDiscoveryMethod(jsonParser.getText());
                      }
                      if ("LastUpdated".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setLastUpdated(jsonParser.getText());
+                         particularData.add(new ParticularData("LastUpdated",jsonParser.getText()));
+
+                         // mainActivityList.setLastUpdated(jsonParser.getText());
                      }
                      if ("RightAscension".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setRightAscension(jsonParser.getText());
+                         particularData.add(new ParticularData("RightAscension",jsonParser.getText()));
+
+                         // mainActivityList.setRightAscension(jsonParser.getText());
                      }
                      if ("Declination".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setDeclination(jsonParser.getText());
+                         particularData.add(new ParticularData("Declination",jsonParser.getText()));
+
+                         // mainActivityList.setDeclination(jsonParser.getText());
                      }
                      if ("HostStarMassSlrMass".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setHostStarMassSlrMass(jsonParser.getText());
+                         particularData.add(new ParticularData("HostStarMassSlrMass",jsonParser.getText()));
+
+                         // mainActivityList.setHostStarMassSlrMass(jsonParser.getText());
                      }
                      if ("HostStarRadiusSlrRad".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setHostStarRadiusSlrRad(jsonParser.getText());
+                         particularData.add(new ParticularData("HostStarRadiusSlrRad",jsonParser.getText()));
+
+                         // mainActivityList.setHostStarRadiusSlrRad(jsonParser.getText());
                      }
                      if ("HostStarMetallicity".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setHostStarMetallicity(jsonParser.getText());
+                         particularData.add(new ParticularData("HostStarMetallicity",jsonParser.getText()));
+
+                         // mainActivityList.setHostStarMetallicity(jsonParser.getText());
                      }
                      if ("HostStarTempK".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setHostStarTempK(jsonParser.getText());
+                         particularData.add(new ParticularData("HostStarTempK",jsonParser.getText()));
+
+                         // mainActivityList.setHostStarTempK(jsonParser.getText());
                      }
                      if ("HostStarAgeGyr".equals(token))
                      {
                          jsonParser.nextToken();
-                         mainActivityList.setHostStarAgeGyr(jsonParser.getText());
+                         particularData.add(new ParticularData("HostStarAgeGyr",jsonParser.getText()));
+
+                         // mainActivityList.setHostStarAgeGyr(jsonParser.getText());
                      }
 
 
                  }
+                 mainActivityList.setArrayList(particularData);
                  arrayList.add(mainActivityList);
 
              }
@@ -217,24 +263,6 @@ android.support.v7.widget.SearchView searchView;
              e.printStackTrace();
          }
      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //    @Override

@@ -3,25 +3,26 @@ package com.example.himanshu.exosearch;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
 //TextView tvName;
-ListView listView;
+RecyclerView rvExtraTopic;
 ExpandableListAdapter expandableListAdapter;
 ArrayList<String> questions = new ArrayList<>();
 ArrayList<String> shortAns = new ArrayList<>();
 ArrayList<String> moreInfo = new ArrayList<>();
+    MainActivityList mainActivityList;
+    RecyclerView rvParticularData;
+    ExpandedRecyclerAdapter expandedRecyclerAdapter;
 ArrayList<MoreInfoContent> allInfo = new ArrayList<>();
 
 
@@ -30,14 +31,25 @@ public static final String TAG="M2A";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //  setSupportActionBar(toolbar);
+        expandableListAdapter = new ExpandableListAdapter(this, allInfo);
 
-        MainActivityList mainActivityList=new MainActivityList();
+        rvExtraTopic=findViewById(R.id.rvExtraTopic);
+        rvExtraTopic.setLayoutManager(new LinearLayoutManager(this));
+        rvExtraTopic.setAdapter(expandableListAdapter);
 
+     rvParticularData=findViewById(R.id.rvParticularData);
+     rvParticularData.setLayoutManager(new LinearLayoutManager(this));
       mainActivityList= (MainActivityList) getIntent().getExtras().getSerializable("Data");
-        Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
+       // Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
 
+
+
+        //Recycler view Adapter set for simple data
+
+        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData());
+        rvParticularData.setAdapter(expandedRecyclerAdapter);
         /**
          *
          * Yha pe intent ke sath data liya and uske according math laga ke solve kiya and 2 list ko combine kar diya
@@ -76,9 +88,7 @@ public static final String TAG="M2A";
 
         }
 
-        listView = findViewById(R.id.planetDetailList);
-        expandableListAdapter = new ExpandableListAdapter(this, allInfo);
-        listView.setAdapter(expandableListAdapter);
+
 
         TextView textView = findViewById(R.id.nameofplanet);
         textView.setText("hi man");
