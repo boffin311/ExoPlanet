@@ -119,7 +119,7 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
 //
 
 
-        moreInfo.add("Name of the planet according to NASA");
+
 
         questions.add("Planetary Mass");
         questions.add("Radius");
