@@ -8,26 +8,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
-//TextView tvName;
 RecyclerView rvExtraTopic;
 ExpandableListAdapter expandableListAdapter;
 ArrayList<String> questions = new ArrayList<>();
 ArrayList<String> shortAns = new ArrayList<>();
 ArrayList<String> moreInfo = new ArrayList<>();
-    MainActivityList mainActivityList;
+    MainGridList mainGridList;
     CardView cardMoreInfo;
     TextView nameOfPlanet,tvMoreInfoBox,tvMoreInfoDescription;
-    RecyclerView rvParticularData;
+
 
 
 public static final String TAG="M2A";
@@ -35,89 +32,20 @@ public static final String TAG="M2A";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //  setSupportActionBar(toolbar);
+
          nameOfPlanet=findViewById(R.id.nameofPlanet);
         rvExtraTopic=findViewById(R.id.rvExtraTopic);
         rvExtraTopic.setLayoutManager(new LinearLayoutManager(this));
-tvMoreInfoBox=findViewById(R.id.tvMoreInfoBox);
-tvMoreInfoDescription=findViewById(R.id.tvMoreInfoDescription);
-cardMoreInfo=findViewById(R.id.CardMoreInfo);
+         tvMoreInfoBox=findViewById(R.id.tvMoreInfoBox);
+        tvMoreInfoDescription=findViewById(R.id.tvMoreInfoDescription);
+         cardMoreInfo=findViewById(R.id.CardMoreInfo);
 
 
-//     rvParticularData=findViewById(R.id.rvParticularData);
-//     rvParticularData.setLayoutManager(new LinearLayoutManager(this));
-      mainActivityList= (MainActivityList) getIntent().getExtras().getSerializable("Data");
+
+      mainGridList = (MainGridList) getIntent().getExtras().getSerializable("Data");
         expandableListAdapter = new ExpandableListAdapter(questions,moreInfo,shortAns);
         rvExtraTopic.setAdapter(expandableListAdapter);
-        // Log.d(TAG, "onCreate: "+mainActivityList.getDeclination());
-
-
-
-        //Recycler view Adapter set for simple data
-
-//        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData());
-      //  expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData(),moreInfo,shortAns);
-        nameOfPlanet.setText(mainActivityList.getParticularData().get(0).getValue());
-     //   rvParticularData.setAdapter(expandedRecyclerAdapter);
-        /**
-         *
-         * Yha pe intent ke sath data liya and uske according math laga ke solve kiya and 2 list ko combine kar diya
-         *
-         */
-
-
-
-//        questions.add("Planetary Mass");
-//        questions.add("Radius");
-//        questions.add("Period Days");
-//        questions.add("Semi Major Axis");
-//        questions.add("Eccentricity");
-//        questions.add("Periastron");
-//        questions.add("Longitude");
-//        questions.add("Ascending Node");
-//        questions.add("Inclination");
-//        questions.add("Surface Temperature");
-//        questions.add("Age");
-//        questions.add("Discovery Method");
-//        questions.add("Discovery Year");
-//        questions.add("Last Updated");
-//        questions.add("Right Ascension");
-//        questions.add("Declination");
-//        questions.add("Distance From Sun");
-//        questions.add("Host Star Mass");
-//        questions.add("Host Star Radius");
-//        questions.add("Host Star Metallicity");
-//        questions.add("Host Star Temperature");
-//        questions.add("Host Star Age");
-//        questions.add("Lists Planet Is On");
-
-//        shortAns.add("");
-//        shortAns.add(" MJ");
-//        shortAns.add(" RJ");
-//        shortAns.add(" days");
-//        shortAns.add( " AU");
-//        shortAns.add("");
-//        shortAns.add("°");
-//        shortAns.add("°");
-//        shortAns.add("°");
-//        shortAns.add( "°");
-//        shortAns.add( " K");
-//        shortAns.add( " Billion Years");
-//        shortAns.add("");
-//        shortAns.add("");
-//        shortAns.add("");
-//        shortAns.add("");
-//        shortAns.add("");
-//        shortAns.add( " Parsec");
-//        shortAns.add(" Msun");
-//        shortAns.add( " Rsun");
-//        shortAns.add( " [Fe/H]");
-//        shortAns.add(" K");
-//        shortAns.add(" Billion years");
-//        shortAns.add("");
-//
-
+        nameOfPlanet.setText(mainGridList.getParticularData().get(0).getValue());
 
 
 
@@ -146,30 +74,30 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
         questions.add("Lists Planet Is On");
 
 
-        shortAns.add(mainActivityList.getParticularData().get(1).getValue() + " MJ");
-        shortAns.add(mainActivityList.getParticularData().get(2).getValue() + " RJ");
-        shortAns.add(mainActivityList.getParticularData().get(3).getValue() + " days");
-        shortAns.add(mainActivityList.getParticularData().get(4).getValue() + " AU");
-        shortAns.add(mainActivityList.getParticularData().get(5).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(6).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(7).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(8).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(9).getValue() + "°");
-        shortAns.add(mainActivityList.getParticularData().get(10).getValue()+ " K");
-        shortAns.add(mainActivityList.getParticularData().get(11).getValue() + " Billion Years");
-        shortAns.add(mainActivityList.getParticularData().get(12).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(13).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(14).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(15).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(16).getValue());
-        shortAns.add(mainActivityList.getParticularData().get(17).getValue()+ " Parsec");
-        shortAns.add(mainActivityList.getParticularData().get(18).getValue()+ " Msun");
-        shortAns.add(mainActivityList.getParticularData().get(19).getValue()+ " Rsun");
-        shortAns.add(mainActivityList.getParticularData().get(20).getValue()+ " [Fe/H]");
-        shortAns.add(mainActivityList.getParticularData().get(21).getValue()+ " K");
-        shortAns.add(mainActivityList.getParticularData().get(22).getValue()+" Billion years");
-        shortAns.add(mainActivityList.getParticularData().get(23).getValue());
-//        shortAns.add("more info about the host star and its planets");
+        shortAns.add(mainGridList.getParticularData().get(1).getValue() + " MJ");
+        shortAns.add(mainGridList.getParticularData().get(2).getValue() + " RJ");
+        shortAns.add(mainGridList.getParticularData().get(3).getValue() + " days");
+        shortAns.add(mainGridList.getParticularData().get(4).getValue() + " AU");
+        shortAns.add(mainGridList.getParticularData().get(5).getValue());
+        shortAns.add(mainGridList.getParticularData().get(6).getValue() + "°");
+        shortAns.add(mainGridList.getParticularData().get(7).getValue() + "°");
+        shortAns.add(mainGridList.getParticularData().get(8).getValue() + "°");
+        shortAns.add(mainGridList.getParticularData().get(9).getValue() + "°");
+        shortAns.add(mainGridList.getParticularData().get(10).getValue()+ " K");
+        shortAns.add(mainGridList.getParticularData().get(11).getValue() + " Billion Years");
+        shortAns.add(mainGridList.getParticularData().get(12).getValue());
+        shortAns.add(mainGridList.getParticularData().get(13).getValue());
+        shortAns.add(mainGridList.getParticularData().get(14).getValue());
+        shortAns.add(mainGridList.getParticularData().get(15).getValue());
+        shortAns.add(mainGridList.getParticularData().get(16).getValue());
+        shortAns.add(mainGridList.getParticularData().get(17).getValue()+ " Parsec");
+        shortAns.add(mainGridList.getParticularData().get(18).getValue()+ " Msun");
+        shortAns.add(mainGridList.getParticularData().get(19).getValue()+ " Rsun");
+        shortAns.add(mainGridList.getParticularData().get(20).getValue()+ " [Fe/H]");
+        shortAns.add(mainGridList.getParticularData().get(21).getValue()+ " K");
+        shortAns.add(mainGridList.getParticularData().get(22).getValue()+" Billion years");
+        shortAns.add(mainGridList.getParticularData().get(23).getValue());
+
 
 
 
@@ -177,13 +105,13 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
     moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
             "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" +
             "\n\n"
-    +"Mass in KG: " + String.valueOf(Double.parseDouble(mainActivityList.getParticularData().get(1).getValue()) * 1.898e27) + " KG\n\n" +
-                        "Mass (M⊕) : " + (Double.parseDouble(mainActivityList.getParticularData().get(1).getValue()) * 1.898e27) / 5.972e24 + " M⊕ \n");
+    +"Mass in KG: " + String.valueOf(Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) + " KG\n\n" +
+                        "Mass (M⊕) : " + (Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) / 5.972e24 + " M⊕ \n");
 
 
         moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
                 "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n" +
-                "Radius in kilometer:"+" "+String.valueOf((Float.valueOf(mainActivityList.getParticularData().get(2).getValue())*69911)));
+                "Radius in kilometer:"+" "+String.valueOf((Float.valueOf(mainGridList.getParticularData().get(2).getValue())*69911)));
         moreInfo.add("It is the revolution period of the planet around its star in terms of earth days \n\n" + "" +
                 "In astronomy, the rotation/revolution period of a celestial object is the time that it takes to complete one revolution around its axis of rotation relative to the background stars. It differs from the planet's solar day, which includes an extra fractional rotation needed to accommodate the portion of the planet's orbital period during one day. \n");
         moreInfo.add("The semi-major axis is one half of the major axis, and thus runs from the centre, through a focus, and to the perimeter. For the special case of a circle, the semi-major axis is the radius." +
@@ -212,39 +140,15 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
 
 
 
-        /**
-         *
-         * now we have to call
-         */
-//
-//        for (int i=0; i<questions.size(); i++){
-//
-//            MoreInfoContent moreInfoContent = new MoreInfoContent();
-//            moreInfoContent.setQuestions(questions.get(i));
-//            moreInfoContent.setShort_ans(shortAns.get(i));
-//            moreInfoContent.setMoreInfo(moreInfo.get(i));
-//
-//            allInfo.add(moreInfoContent);
-//
-//        }
-/**
- More Info link is after this
-
- */
-cardMoreInfo.setOnClickListener(new View.OnClickListener() {
+        cardMoreInfo.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        String formatName = mainActivityList.getPlanetIdentifier().replace(" ", "%20");
-        String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
-        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        startActivity(browse);
-    }
-});
-//        String formatName = mainActivityList.getPlanetIdentifier().replace(" ", "%20");
-//                         String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
-//                         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-//                         this.startActivity(browse);
-
+            String formatName = mainGridList.getPlanetIdentifier().replace(" ", "%20");
+            String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
+            Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(browse);
+          }
+        });
 
     }
 

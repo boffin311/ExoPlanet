@@ -3,7 +3,7 @@ package com.example.himanshu.exosearch;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainActivityList implements Serializable {
+public class MainGridList implements Serializable {
     String planetIdentifier;
     String listsPlanetIsOn;
     String discoveryYear;

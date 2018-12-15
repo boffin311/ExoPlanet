@@ -3,7 +3,6 @@ package com.example.himanshu.exosearch;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,19 +11,17 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.FrameLayout;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class GridAdapter extends BaseAdapter implements Filterable {
-   private ArrayList<MainActivityList> arrayList;
-   private ArrayList<MainActivityList> _arrayList;
+   private ArrayList<MainGridList> arrayList;
+   private ArrayList<MainGridList> _arrayList;
    Activity activity;
    public static final String TAG="GA";
     MyHolder holder;
-   public GridAdapter(ArrayList<MainActivityList> arrayList,Activity activity){
+   public GridAdapter(ArrayList<MainGridList> arrayList, Activity activity){
        this.arrayList=arrayList;
        this.activity=activity;
        _arrayList = arrayList;
@@ -56,15 +53,15 @@ public class GridAdapter extends BaseAdapter implements Filterable {
          else
              holder= (MyHolder) convertView.getTag();
 //        TextView tvPlanetName=convertView.findViewById(R.id.tvPlanetName);
-        MainActivityList mainActivityList=arrayList.get(position);
-        holder.tvCharAtZero.setText(String.valueOf(mainActivityList.getPlanetIdentifier().charAt(0)));
-         holder.tvPlanetName.setText(mainActivityList.getPlanetIdentifier());
-         holder.tvDiscovery.setText("Discovered: "+mainActivityList.getDiscoveryYear());
-         holder.tvIsConfirmed.setText(mainActivityList.getListsPlanetIsOn());
-         if (mainActivityList.getPeriodDays().length()>=5)
-         holder.tvPeriodicDay.setText(mainActivityList.getPeriodDays().substring(0,5));
+        MainGridList mainGridList =arrayList.get(position);
+        holder.tvCharAtZero.setText(String.valueOf(mainGridList.getPlanetIdentifier().charAt(0)));
+         holder.tvPlanetName.setText(mainGridList.getPlanetIdentifier());
+         holder.tvDiscovery.setText("Discovered: "+ mainGridList.getDiscoveryYear());
+         holder.tvIsConfirmed.setText(mainGridList.getListsPlanetIsOn());
+         if (mainGridList.getPeriodDays().length()>=5)
+         holder.tvPeriodicDay.setText(mainGridList.getPeriodDays().substring(0,5));
          else
-             holder.tvPeriodicDay.setText(mainActivityList.getPeriodDays());
+             holder.tvPeriodicDay.setText(mainGridList.getPeriodDays());
 
          holder. gridFrame.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -102,7 +99,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
            protected FilterResults performFiltering(CharSequence charSequence) {
                FilterResults results = new FilterResults();
                Log.d(TAG, "performFiltering: "+"I am in filters" );
-               ArrayList<MainActivityList> FilteredArrList = new ArrayList<>();
+               ArrayList<MainGridList> FilteredArrList = new ArrayList<>();
                Log.d(TAG, "performFiltering: "+arrayList.size());
                if (_arrayList == null) {
                    _arrayList = new ArrayList<>(arrayList);
@@ -122,7 +119,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                        if (data.toLowerCase().startsWith(charSequence.toString())) {
 
 
-                           MainActivityList newList = new MainActivityList();
+                           MainGridList newList = new MainGridList();
                            newList.setPlanetIdentifier(_arrayList.get(i).planetIdentifier);
                            newList.setListsPlanetIsOn(_arrayList.get(i).listsPlanetIsOn);
                            newList.setDiscoveryYear(_arrayList.get(i).discoveryYear);
@@ -144,7 +141,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
            @Override
            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
 
-               arrayList = (ArrayList<MainActivityList>) filterResults.values;
+               arrayList = (ArrayList<MainGridList>) filterResults.values;
                notifyDataSetChanged();
            }
        };
