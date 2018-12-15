@@ -217,6 +217,13 @@ android.support.v7.widget.SearchView searchView;
 
                          // mainActivityList.setDeclination(jsonParser.getText());
                      }
+                     if ("DistFromSunParsec".equals(token))
+                     {
+                         jsonParser.nextToken();
+                         particularData.add(new ParticularData("DistFromSunParsec",jsonParser.getText()));
+
+                         // mainActivityList.setDeclination(jsonParser.getText());
+                     }
                      if ("HostStarMassSlrMass".equals(token))
                      {
                          jsonParser.nextToken();

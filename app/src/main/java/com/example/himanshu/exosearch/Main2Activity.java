@@ -48,7 +48,9 @@ public static final String TAG="M2A";
 
         //Recycler view Adapter set for simple data
 
-        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData());
+//        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(mainActivityList.getParticularData());
+        expandedRecyclerAdapter = new ExpandedRecyclerAdapter(allInfo);
+
         rvParticularData.setAdapter(expandedRecyclerAdapter);
         /**
          *
@@ -57,19 +59,81 @@ public static final String TAG="M2A";
          */
 
 
-        questions.add("what is the name of planet");
-        questions.add("all this non sense");
-        questions.add("all this non sense");
+        questions.add("Planetary Mass");
+        questions.add("Radius");
+        questions.add("Period Days");
+        questions.add("Semi Major Axis");
+        questions.add("Eccentricity");
+        questions.add("Periastron");
+        questions.add("Longitude");
+        questions.add("Ascending Node");
+        questions.add("Inclination");
+        questions.add("Surface Temperature");
+        questions.add("Age");
+        questions.add("Discovery Method");
+        questions.add("Discovery Year");
+        questions.add("Last Updated");
+        questions.add("Right Ascension");
+        questions.add("Declination");
+        questions.add("Distance From Sun");
+        questions.add("Host Star Mass");
+        questions.add("Host Star Radius");
+        questions.add("Host Star Metallicity");
+        questions.add("Host Star Temperature");
+        questions.add("Host Star Age");
+        questions.add("Lists Planet Is On");
+
+        shortAns.add(mainActivityList.getParticularData().get(1).getValue() + " MJ");
+        shortAns.add(mainActivityList.getParticularData().get(2).getValue() + " RJ");
+        shortAns.add(mainActivityList.getParticularData().get(3).getValue() + " days");
+        shortAns.add(mainActivityList.getParticularData().get(4).getValue() + " AU");
+        shortAns.add(mainActivityList.getParticularData().get(5).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(6).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(7).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(8).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(9).getValue() + "°");
+        shortAns.add(mainActivityList.getParticularData().get(10).getValue()+ " K");
+        shortAns.add(mainActivityList.getParticularData().get(11).getValue() + " Billion Years");
+        shortAns.add(mainActivityList.getParticularData().get(12).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(13).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(14).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(15).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(16).getValue());
+        shortAns.add(mainActivityList.getParticularData().get(17).getValue()+ " Parsec");
+        shortAns.add(mainActivityList.getParticularData().get(18).getValue()+ " Msun");
+        shortAns.add(mainActivityList.getParticularData().get(19).getValue()+ " Rsun");
+        shortAns.add(mainActivityList.getParticularData().get(20).getValue()+ " [Fe/H]");
+        shortAns.add(mainActivityList.getParticularData().get(21).getValue()+ " K");
+        shortAns.add(mainActivityList.getParticularData().get(22).getValue()+" Billion years");
+        shortAns.add(mainActivityList.getParticularData().get(23).getValue());
 
 
-        shortAns.add("lalala");
-        shortAns.add("yahoo");
-        shortAns.add("lalala");
 
+        moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ ");
+        moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ");
+        moreInfo.add("It is the revolution period of the planet around its star in terms of earth days");
+        moreInfo.add("The semi-major axis is one half of the major axis, and thus runs from the centre, through a focus, and to the perimeter. For the special case of a circle, the semi-major axis is the radius." +
+                " It is given in Astronomical Unit");
+        moreInfo.add("The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptic orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola. ");
+        moreInfo.add("The point of the orbit of a celestial body that is closest to the star around which the body is orbiting. ");
+        moreInfo.add("It is the Mean Longitude");
+        moreInfo.add("Longitude of ascending node ");
+        moreInfo.add("Orbital inclination");
+        moreInfo.add("Temperature at surface in Kelvin ");
+        moreInfo.add("Age of planet in terms of Giga year or Billion year ");
+        moreInfo.add("Method of Discovery ");
+        moreInfo.add("Discovery year");
+        moreInfo.add("Last date it was updated in yy/mm/dd format ");
+        moreInfo.add("RA and DEC are to the sky what longitude and latitude are to the surface of the Earth. RA corresponds to East/West directions (like longitude) while DEC measures North/South directions (like latitude).");
+        moreInfo.add("RA and DEC are to the sky what longitude and latitude are to the surface of the Earth. RA corresponds to East/West directions (like longitude) while DEC measures North/South directions (like latitude). ");
+        moreInfo.add("Distance of planet from our sun in Parsec. One parsec is 3.26 light years");
+        moreInfo.add("Host Star mass relative to mass of of Sun Mass denoted by Msun.");
+        moreInfo.add("Host Star radius relative to radius of of Sun Mass denoted by Rsun ");
+        moreInfo.add("Metallicity, ratio of Iron and Hydrogen ");
+        moreInfo.add("Temperature of Host Star in Kelvin ");
+        moreInfo.add("Host Star age in Giga year or billion year ");
+        moreInfo.add("Confirmed or Controversial");
 
-        moreInfo.add("I don't know why it is happening but it need to be corrected ");
-        moreInfo.add("The following plot shows the approximate sizes of the planets in this system The");
-        moreInfo.add("This list shows all planetary and stellar components in the system. It gives a quick overview of the hierarchical ");
 
 
         /**

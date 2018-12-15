@@ -18,12 +18,14 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent">
+
         <ImageView
          android:layout_width="28dp"
             android:layout_gravity="center"
             android:id="@+id/imageSearch"
             android:src="@drawable/ic_search"
             android:layout_height="25dp" />
+
     </FrameLayout>
 
 </LinearLayout>
