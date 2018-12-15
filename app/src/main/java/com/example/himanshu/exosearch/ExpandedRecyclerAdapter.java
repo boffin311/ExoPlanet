@@ -11,9 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ExpandedRecyclerAdapter extends RecyclerView.Adapter<ExpandedRecyclerAdapter.MyHolder> {
-ArrayList<ParticularData> particularDataArrayList;
+ArrayList<MoreInfoContent> particularDataArrayList;
 
-    public ExpandedRecyclerAdapter(ArrayList<ParticularData> particularData) {
+    public ExpandedRecyclerAdapter(ArrayList<MoreInfoContent> particularData) {
         this.particularDataArrayList = particularData;
     }
 
@@ -28,9 +28,9 @@ ArrayList<ParticularData> particularDataArrayList;
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder myHolder, int i) {
-        ParticularData particularData=particularDataArrayList.get(i);
-        myHolder.tvValue.setText(particularData.getValue());
-        myHolder.tvTopic.setText(particularData.getTopic());
+        MoreInfoContent particularData=particularDataArrayList.get(i);
+        myHolder.tvValue.setText(particularData.getShort_ans());
+        myHolder.tvTopic.setText(particularData.getQuestions());
     }
 
     @Override

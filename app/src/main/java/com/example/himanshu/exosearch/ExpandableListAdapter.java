@@ -64,7 +64,11 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
 
         MoreInfoContent moreInfoContent = _listDataHeader.get(i);
         holder.question.setText(moreInfoContent.getQuestions());
-        holder.shortAns.setText(moreInfoContent.getShort_ans());
+        if(moreInfoContent.getShort_ans().contains("null") | moreInfoContent.getShort_ans().equals("") | moreInfoContent.getShort_ans().equals("°") | moreInfoContent.getShort_ans().equals("K")) {
+            holder.shortAns.setText("Not Available");
+        }else
+            holder.shortAns.setText(moreInfoContent.getShort_ans());
+
         holder.moreInfo.setText(moreInfoContent.getMoreInfo());
     }
 

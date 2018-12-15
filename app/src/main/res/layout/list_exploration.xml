@@ -41,8 +41,8 @@
                 android:layout_height="40dp"
                 android:textSize="13sp"
                 android:text="How far is this ?"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
                 android:paddingRight="2dp"
                 android:paddingLeft="16dp"
                 android:id="@+id/question"
@@ -55,11 +55,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="You cant imagine blah blaah blaaahblaaah"
-                android:paddingTop="2dp"
+                android:paddingTop="0dp"
                 android:paddingBottom="10dp"
                 android:paddingRight="2dp"
                 android:paddingLeft="16dp"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:id="@+id/short_answer"
                 android:gravity="left"/>
@@ -83,6 +83,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:visibility="gone"
+                android:background="@drawable/modified_search_button1"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
 
