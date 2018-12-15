@@ -1,6 +1,10 @@
 package com.example.himanshu.exosearch;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +33,6 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
 
         this._context = context;
         this._listDataHeader = listDataHeader;
-
     }
 
     @NonNull
@@ -40,7 +44,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+    public void onBindViewHolder(@NonNull final MyHolder holder, final int i) {
         holder.linearContent.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
@@ -48,19 +52,32 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
                           Log.d(TAG, "onClick: "+"I am clicked");
                      View view1=(View)v.getParent();
                      LinearLayout linear=view1.findViewById(R.id.linearMoreInfo);
-                     if (linear.getVisibility()==View.GONE)
-                     {linear.setVisibility(View.VISIBLE);
-                         Log.d(TAG, "onClick: "+"I am clicked and my visibility is gone");
-                     }
-                     else
-                     { Log.d(TAG, "onClick: "+"I am clicked and my Visibility is visible");
-                         linear.setVisibility(View.GONE);
-                         }
 
+                     if(_listDataHeader.get(i).getQuestions().contains("MORE INFO")) {
+
+                         String formatName = _listDataHeader.get(i).getMoreInfo().replace(" ", "%20");
+                         String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
+                         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                         _context.startActivity(browse);
+
+                     }else{
+                         if (linear.getVisibility() == View.GONE) {
+                             linear.setVisibility(View.VISIBLE);
+                             Log.d(TAG, "onClick: " + "I am clicked and my visibility is gone");
+                         } else {
+                             Log.d(TAG, "onClick: " + "I am clicked and my Visibility is visible");
+                             linear.setVisibility(View.GONE);
+                         }
+                     }
 
                       }
                   });
 
+        if(_listDataHeader.get(i).getQuestions().contains("MORE INFO")){
+            holder.linearContent.setBackgroundColor(Color.DKGRAY);
+            holder.question.setTextColor(Color.WHITE);
+            holder.shortAns.setTextColor(Color.WHITE);
+        }
 
         MoreInfoContent moreInfoContent = _listDataHeader.get(i);
         holder.question.setText(moreInfoContent.getQuestions());
