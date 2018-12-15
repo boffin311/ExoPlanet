@@ -70,6 +70,11 @@ android.support.v7.widget.SearchView searchView;
                          particularData.add(new ParticularData("PlanetIdentifier",jsonParser.getText()));
                          //Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
+//                     if ("TypeFlag".equals(token)) {
+//                         jsonParser.nextToken();
+//                         particularData.add(new ParticularData("Type Flag",jsonParser.getText()));
+//
+//                     }
                      if ("ListsPlanetIsOn".equals(token)) {
                          jsonParser.nextToken();
                          particularData.add(new ParticularData("ListsPlanetIsOn",jsonParser.getText()));

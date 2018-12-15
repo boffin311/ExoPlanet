@@ -9,6 +9,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -50,6 +51,7 @@ public static final String TAG="M2A";
 
 
         questions.add("Planetary Mass");
+//        questions.add("Type Flag")
         questions.add("Radius");
         questions.add("Period Days");
         questions.add("Semi Major Axis");
@@ -102,16 +104,46 @@ public static final String TAG="M2A";
 
 
 
-    moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
-            "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" +
-            "\n\n"
-    +"Mass in KG: " + String.valueOf(Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) + " KG\n\n" +
-                        "Mass (M⊕) : " + (Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) / 5.972e24 + " M⊕ \n");
+//        if (mainGridList.getParticularData().get(1).getValue().contains("null") ||mainGridList.getParticularData().get(1).getValue().contains(""))
+//            { moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
+//                    "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" +
+//                    "\n"
+//                    );
+//            }
+
+        try {
+            moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
+                    "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" +
+                    "\n\n"
+                     +"Mass in KG: " + String.valueOf(Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) + " KG\n\n" +
+                    "Mass (M⊕) : " + (Double.parseDouble(mainGridList.getParticularData().get(1).getValue()) * 1.898e27) / 5.972e24 + " M⊕ \n");
 
 
-        moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
-                "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n" +
-                "Radius in kilometer:"+" "+String.valueOf((Float.valueOf(mainGridList.getParticularData().get(2).getValue())*69911)));
+        }
+        catch (Exception e)
+        {
+            moreInfo.add("The Planetary mass relative to the mass of Jupiter denoted with MJ \n\n" +
+                    "Planetary mass is a measure of the mass of a planet-like object. Within the Solar System, planets are usually measured in the astronomical system of units, where the unit of mass is the solar mass (M☉), the mass of the Sun. In the study of extrasolar planets, the unit of measure is typically the mass of Jupiter (MJ) for large gas giant planets, and the mass of Earth (M⊕) for smaller rocky terrestrial planets.\n" +
+                    "\n");
+        }
+//         try {
+//             moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
+//                     "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n"
+//                     );
+//
+//         }
+     try{
+             moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
+                             "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n"+
+                     "Radius in kilometer:"+" "+String.valueOf((Float.valueOf(mainGridList.getParticularData().get(2).getValue())*69911)));
+             Log.d(TAG, "onCreate: "+"I am here again" );
+         }
+         catch (Exception e)
+         {
+             moreInfo.add("The Planetary radius relative to the radius of Jupiter denoted with RJ \n\n" + "" +
+                     "Jupiter radius or Jovian radius (RJ or RJup) is the distance equal to the radius of planet Jupiter. It has a value of 71,492 km (44,423 mi), or 11.2 Earth radii (R⊕)[2] (one Earth radius equals 0.08921 RJ). Jupiter radius is a unit of length used in astronomy to describe the radii of gas giants and some extrasolar planets. It is also used in describing brown dwarfs. \n");
+
+         }
         moreInfo.add("It is the revolution period of the planet around its star in terms of earth days \n\n" + "" +
                 "In astronomy, the rotation/revolution period of a celestial object is the time that it takes to complete one revolution around its axis of rotation relative to the background stars. It differs from the planet's solar day, which includes an extra fractional rotation needed to accommodate the portion of the planet's orbital period during one day. \n");
         moreInfo.add("The semi-major axis is one half of the major axis, and thus runs from the centre, through a focus, and to the perimeter. For the special case of a circle, the semi-major axis is the radius." +
