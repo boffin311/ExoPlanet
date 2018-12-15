@@ -144,7 +144,7 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
         questions.add("Host Star Temperature");
         questions.add("Host Star Age");
         questions.add("Lists Planet Is On");
-        questions.add("MORE INFORMATION");
+
 
         shortAns.add(mainActivityList.getParticularData().get(1).getValue() + " MJ");
         shortAns.add(mainActivityList.getParticularData().get(2).getValue() + " RJ");
@@ -169,7 +169,7 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
         shortAns.add(mainActivityList.getParticularData().get(21).getValue()+ " K");
         shortAns.add(mainActivityList.getParticularData().get(22).getValue()+" Billion years");
         shortAns.add(mainActivityList.getParticularData().get(23).getValue());
-        shortAns.add("more info about the host star and its planets");
+//        shortAns.add("more info about the host star and its planets");
 
 
 
@@ -199,7 +199,7 @@ cardMoreInfo=findViewById(R.id.CardMoreInfo);
         moreInfo.add("Temperature of Host Star in Kelvin ");
         moreInfo.add("Host Star age in Giga year or billion year ");
         moreInfo.add("Confirmed or Controversial");
-        moreInfo.add(mainActivityList.getParticularData().get(0).getValue());
+
 
 
 
