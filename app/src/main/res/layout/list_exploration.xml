@@ -18,13 +18,19 @@ android:background="#375980"
 
                 android:layout_height="wrap_content">
 
-
+<ImageView
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:id="@+id/imageDown"
+    android:layout_marginRight="10dp"
+    android:layout_gravity="center|right"
+    android:src="@drawable/ic_keyboard_arrow_down"/>
            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:text="How far is this ?"
-                android:paddingTop="15dp"
+                android:paddingTop="17dp"
                 android:paddingBottom="0dp"
                 android:paddingRight="2dp"
                 android:paddingLeft="16dp"
@@ -55,7 +61,6 @@ android:background="#375980"
                 android:id="@+id/linearMoreInfo"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
 
@@ -71,16 +76,16 @@ android:background="#375980"
                             android:textColor="#FFF"
                             android:text="confirmed planet"
                             android:textSize="11sp" />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="1px"
-
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="18dp"
-    android:background="#6bffffff"/>
 
             </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+         android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="18dp"
+        android:background="#6bffffff"/>
 
 
 

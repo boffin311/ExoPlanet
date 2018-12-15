@@ -151,26 +151,4 @@ public class GridAdapter extends BaseAdapter implements Filterable {
         return filter;
     }
 
-//    public void filter(String nameExo){
-//       nameExo.toLowerCase();
-//
-//       _arrayList.clear();
-////       if(nameExo.length() == 0){
-////           arrayList.addAll(_arrayList);
-////       }
-////       else {
-////           for (MainActivityList list : _arrayList){
-////               if(list.getPlanetIdentifier().toLowerCase().contains(nameExo)){
-////                   arrayList.add(list);
-////               }
-////           }
-////       }
-//
-//        Log.d("Adapter", "so this is " + arrayList.size() + " " + _arrayList.size());
-//
-//
-//
-//       notifyDataSetChanged();
-//
-//    }
 }

@@ -52,34 +52,7 @@ android.support.v7.widget.SearchView searchView;
         FragmentTransaction ftrax=getSupportFragmentManager().beginTransaction();
         ftrax.replace(R.id.mainToolBar,new FramgmentMainToolBar());
         ftrax.commit();
-//           frameToolbarTitle.inflateMenu(R.menu.menu_general);
-////
-//
-//             frameToolbarTitle.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-//                 @Override
-//                 public boolean onMenuItemClick(MenuItem menuItem) {
-//                     if (menuItem.getItemId()==R.id.search_button)
-//                     {
-//                         searchView.setVisibility(View.VISIBLE);
-//                         searchView.setLayoutParams(new Toolbar.LayoutParams(Toolbar.LayoutParams.MATCH_PARENT,Toolbar.LayoutParams.MATCH_PARENT));
-//                         Log.d(TAG, "onOptionsItemSelected: "+" search button is clicked" );
-//                     }
-//                     return true;
-//                 }
-//             });
-//        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                gridAdapter.getFilter().filter(s);
-//                return false;
-//            }
-//        });
-//
+
 
         }
 
@@ -105,7 +78,6 @@ android.support.v7.widget.SearchView searchView;
                          particularData.add(new ParticularData("ListsPlanetIsOn",jsonParser.getText()));
 
                          mainActivityList.setListsPlanetIsOn(jsonParser.getText());
-                      //   Log.d(TAG, "parseJson: "+jsonParser.getText());
                      }
                      if ("DiscoveryYear".equals(token)) {
                          jsonParser.nextToken();
@@ -271,19 +243,6 @@ android.support.v7.widget.SearchView searchView;
          }
      }
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater menuInflater=getMenuInflater();
-//        menuInflater.inflate(R.menu.menu_general,menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
 
 

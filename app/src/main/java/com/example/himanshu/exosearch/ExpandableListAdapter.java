@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,57 +49,45 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MyHolder holder, final int i) {
 
 
 
         holder.question.setText(questionArrayList.get(i));
-   //   if(particularData.getValue().contains("null") | particularData.getValue().equals("") | particularData.getValue().equals("°") | particularData.getValue().equals("K")) {
 
 
-//        holder.linearContent.setOnClickListener(new View.OnClickListener() {
-//              @Override
-//              public void onClick(View v) {
-//
-//                          Log.d(TAG, "onClick: "+"I am clicked");
-//                     View view1=(View)v.getParent();
-//                     LinearLayout linear=view1.findViewById(R.id.linearMoreInfo);
-//
-//                     if(_listDataHeader.get(i).getQuestions().contains("MORE INFO")) {
-//
-//                         String formatName = _listDataHeader.get(i).getMoreInfo().replace(" ", "%20");
-//                         String uri = "http://www.openexoplanetcatalogue.com/planet/"+formatName+"/";
-//                         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-//                         _context.startActivity(browse);
-//
-//                     }else{
-//                         if (linear.getVisibility() == View.GONE) {
-//                             linear.setVisibility(View.VISIBLE);
-//                             Log.d(TAG, "onClick: " + "I am clicked and my visibility is gone");
-//                         } else {
-//                             Log.d(TAG, "onClick: " + "I am clicked and my Visibility is visible");
-//                             linear.setVisibility(View.GONE);
-//                         }
-//                     }
-//
-//                      }
-//                  });
+        holder.linearContent.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
 
-//        if(_listDataHeader.get(i).getQuestions().contains("MORE INFO")){
-//            holder.linearContent.setBackgroundColor(Color.DKGRAY);
-//            holder.question.setTextColor(Color.WHITE);
-//            holder.shortAns.setTextColor(Color.WHITE);
-     //   }
+                          Log.d(TAG, "onClick: "+"I am clicked");
+                     View view1=(View)v.getParent();
+                     LinearLayout linear=view1.findViewById(R.id.linearMoreInfo);
+                     ImageView image=view1.findViewById(R.id.imageDown);
+                     if (linear.getVisibility()==View.VISIBLE && detailArrayList.get(i).length()>=80)
+                     {linear.setVisibility(View.GONE);
+                      image.setImageResource(R.drawable.ic_keyboard_arrow_down);
+                     }
+                     else
+                     {linear.setVisibility(View.VISIBLE);
+                     image.setImageResource(R.drawable.ic_keyboard_arrow_up_white_24dp);}
 
-//        MoreInfoContent moreInfoContent = _listDataHeader.get(i);
+                     }
+                });
+
+
         String value=unitArrayList.get(i);
-      //  holder.question.setText(questionArrayList.get(i));
         if(value.contains("null") | value.equals("") | value.equals("°") | value.equals("K")) {
             holder.shortAns.setText("Not Available");
         }else
             holder.shortAns.setText(value);
-
-            holder.moreInfo.setText(detailArrayList.get(i));
+        holder.moreInfo.setText(detailArrayList.get(i));
+           if (detailArrayList.get(i).length()>=80)
+           {  holder.linearMoreInfo.setVisibility(View.GONE);
+           holder.imageDown.setImageResource(R.drawable.ic_keyboard_arrow_down);}
+           else
+           { holder.linearMoreInfo.setVisibility(View.VISIBLE);
+           holder.imageDown.setVisibility(View.GONE);}
 
 
     }
@@ -109,76 +98,19 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<ExpandableListAd
     }
 
 
-//    @Override
-//    public int getCount() {
-//        return _listDataHeader.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int i) {
-//        return _listDataHeader.get(i);
-//    }
-//
-//    @Override
-//    public long getItemId(int i) {
-//        return i;
-//    }
-//
-//    @Override
-//    public View getView( int i, View view, ViewGroup viewGroup) {
-//
-//        LayoutInflater li= (LayoutInflater) viewGroup.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//
-//        if (view==null)
-//
-//        {view=li.inflate(R.layout.list_exploration,viewGroup,false);
-//              view.getTag();
-//            holder = new MyHolder(view);
-//            view.setTag(holder);}
-//            else
-//             holder = (MyHolder) view.getTag();
-//          holder.linearContent.setOnClickListener(new View.OnClickListener() {
-//              @Override
-//              public void onClick(View v) {
-//
-//                          Log.d(TAG, "onClick: "+"I am clicked");
-//                     View view1=(View)v.getParent();
-//                     LinearLayout linear=view1.findViewById(R.id.linearMoreInfo);
-//                     if (linear.getVisibility()==View.GONE)
-//                     {linear.setVisibility(View.VISIBLE);
-//                         Log.d(TAG, "onClick: "+"I am clicked and my visibility is gone");
-//                     }
-//                     else
-//                     { Log.d(TAG, "onClick: "+"I am clicked and my Visibility is visible");
-//                         linear.setVisibility(View.GONE);
-//                         }
-//
-//
-//                      }
-//                  });
-//
-//
-//        MoreInfoContent moreInfoContent = _listDataHeader.get(i);
-//        holder.question.setText(moreInfoContent.getQuestions());
-//        holder.shortAns.setText(moreInfoContent.getShort_ans());
-//        holder.moreInfo.setText(moreInfoContent.getMoreInfo());
-//
-//
-//
-//
-//
-//        return view;
-//    }
+
 
      class MyHolder extends RecyclerView.ViewHolder{
         TextView question,shortAns,moreInfo;
         LinearLayout linearContent;
         LinearLayout linearMoreInfo;
+        ImageView imageDown;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             linearContent=itemView.findViewById(R.id.linearContent);
             question=itemView.findViewById(R.id.question);
+            imageDown=itemView.findViewById(R.id.imageDown);
             shortAns=itemView.findViewById(R.id.short_answer);
             moreInfo=itemView.findViewById(R.id.moreInfo);
             linearMoreInfo = itemView.findViewById(R.id.linearMoreInfo);

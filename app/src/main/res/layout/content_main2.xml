@@ -30,41 +30,7 @@
                 android:fontFamily="@font/oswald"
                />
            </FrameLayout>
-            <!--<android.support.v7.widget.CardView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:visibility="gone"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:layout_marginRight="8dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:elevation="5dp"-->
-                <!--app:cardCornerRadius="3dp">-->
-                <!--<android.support.v7.widget.RecyclerView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:id="@+id/rvParticularData"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:nestedScrollingEnabled="false"-->
-                    <!--android:layout_height="match_parent">-->
 
-            <!--<android.support.v7.widget.CardView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:visibility="gone"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:layout_marginRight="8dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:elevation="5dp"-->
-                <!--app:cardCornerRadius="3dp">-->
-                <!--<android.support.v7.widget.RecyclerView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:id="@+id/rvParticularData"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:nestedScrollingEnabled="false"-->
-                    <!--android:layout_height="match_parent">-->
-
-
-                <!--</android.support.v7.widget.RecyclerView>-->
-            <!--</android.support.v7.widget.CardView>-->
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -96,7 +62,7 @@
     android:layout_marginTop="15dp"
     android:id="@+id/CardMoreInfo"
     android:elevation="5dp"
-    app:cardBackgroundColor="#517fb4"
+    app:cardBackgroundColor="#4a74a4"
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="3dp"
     android:layout_height="wrap_content">
@@ -116,13 +82,13 @@
             android:text="More Info"
             android:paddingTop="15dp"
             android:paddingBottom="0dp"
-android:gravity="center"
+
             android:paddingRight="2dp"
             android:paddingLeft="16dp"
             android:id="@+id/tvMoreInfoBox"
             android:layout_gravity="left"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="#FFF"/>
 
 
     <TextView
@@ -135,7 +101,7 @@ android:gravity="center"
         android:paddingLeft="16dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="#0000ff"
+        android:textColor="#040486"
         android:id="@+id/tvMoreInfoDescription"
         android:gravity="left"/>
     </LinearLayout>
